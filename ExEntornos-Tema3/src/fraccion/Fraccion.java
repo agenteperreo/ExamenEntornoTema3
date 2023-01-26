@@ -1,22 +1,40 @@
 package fraccion;
 
-// Clase que define una fracción
+/**
+ * En esta clase definiremos una fraccion
+ * 
+ * @author igarcia
+ *
+ */
 public class Fraccion {
-	// Numerador
+
+	/**
+	 * Atributo que será el numerador de la fracción
+	 */
 	private int num;
 
-	// Denominador
+	/**
+	 * Atributo que será el denominador de la fracción
+	 */
 	private int den;
 
-	// Constructor por defecto
+	/**
+	 * Constructor por defecto que debe generar el valor neutro que es 0/1
+	 */
 
-	public Fraccion() { // debe generar el valor neutro que es 0/1
+	public Fraccion() {
 		num = 0;
 		den = 1;
 
 	}
 
-	// Constructor con parámetros
+	/**
+	 * Constructor con parámetros que debe evitar crear fracciones con 0 en el
+	 * divisor y llamo a la funcion simplificar para simplificar la fracción
+	 * 
+	 * @param num Numerador de la fracción
+	 * @param den Denominador de la fracción
+	 */
 	public Fraccion(int num, int den) {
 		// debo evitar crear fracciones con 0 en el divisor
 		this.num = num;
@@ -28,33 +46,61 @@ public class Fraccion {
 		simplificar();
 	}
 
-	// Constructor copia
+	/**
+	 * Constructor copia
+	 * 
+	 * @param f La fracción hecha una constante
+	 */
 	public Fraccion(final Fraccion f) {
 		num = f.num;
 		den = f.den;
 	}
 
-	// getters y setters
+	/**
+	 * Setter del numerador de la fracción
+	 * 
+	 * @param num Numerador de la fracción
+	 */
 
 	public void setNum(int num) {
 		this.num = num;
 
 	}
 
+	/**
+	 * Getter del numerador de la fracción
+	 * 
+	 * @return Numerador de la fracción
+	 */
 	public int getNum() {
 		return num;
 
 	}
 
+	/**
+	 * Setter del denominador de la fracción
+	 * 
+	 * @param den denominador de la fracción
+	 */
 	public void setDen(int den) {
 		this.den = den;
 	}
 
+	/**
+	 * Getter del denominador de la fracción
+	 * 
+	 * @return Denominador de la fracción
+	 */
 	public int getDen() {
 		return den;
 	}
 
-	// Cálculo del máximo común divisor por el algoritmo de Euclides
+	/**
+	 * Clase en la que calcularemos el máximo común divisor por el algoritmo de
+	 * Euclides
+	 * 
+	 * @return u Máximo común divisor
+	 */
 	private int mcd() {
 		int u = (Math.abs(num)); // valor absoluto del numerador
 		int v = (Math.abs(den)); // valor absoluto del denominador
@@ -70,14 +116,18 @@ public class Fraccion {
 		return u;
 	}
 
-	// método para simplificar fracciones
+	/**
+	 * Función para sinplificar las fracciones
+	 */
 	public void simplificar() {
 		int n = mcd();
 		num = num / n;
 		den = den / n;
 	}
 
-	// Método toString
+	/**
+	 * Sobre escritura del método toString
+	 */
 
 	public String toString() {
 		String mensaje = num + "/" + den;
@@ -85,7 +135,12 @@ public class Fraccion {
 
 	}
 
-	// suma de fracciones
+	/**
+	 * Metodo para la suma de fracciones
+	 * 
+	 * @param f Fracción
+	 * @return Resultado de la suma simplificada
+	 */
 	public Fraccion sumar(Fraccion f) {
 		Fraccion aux = new Fraccion();
 		aux.num = num * f.den + den * f.num;
@@ -95,7 +150,12 @@ public class Fraccion {
 
 	}
 
-	// Restar fracciones
+	/**
+	 * Metodo para la resta de fracciones
+	 * 
+	 * @param f Fracción
+	 * @return Resultado de la resta simplificada
+	 */
 
 	public Fraccion restar(Fraccion f) {
 		Fraccion aux = new Fraccion();
@@ -106,7 +166,11 @@ public class Fraccion {
 
 	}
 
-//Multiplicar fracciones
+	/**
+	 * Metodo para la multiplicación de fracciones
+	 * @param f Fracción
+	 * @return Resultado de la multiplicación simplificada
+	 */
 
 	public Fraccion multiplicar(Fraccion f) {
 		Fraccion aux = new Fraccion();
@@ -117,7 +181,11 @@ public class Fraccion {
 
 	}
 
-//Dividir fracciones
+	/**
+	 * Metodo para la suma de fracciones
+	 * @param f Fraccion
+	 * @return Resultado de la multiplicación simplificado
+	 */
 
 	public Fraccion dividir(Fraccion f) {
 		Fraccion aux = new Fraccion();
